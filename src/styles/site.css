@@ -4,7 +4,10 @@
   }
   .service-grid > div {
     border-right: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  #services .service-grid > div {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
   }
   .pricing-grid {
     grid-template-columns: 1fr !important;
@@ -17,12 +20,17 @@
     grid-template-columns: 1fr !important;
     gap: 48px !important;
   }
-  .portfolio-feature {
+  .benefits-grid {
     grid-template-columns: 1fr !important;
   }
-  .portfolio-feature .portfolio-details {
+  .benefits-grid > div {
     border-left: none !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0 !important;
+  }
+  .benefits-grid > div:first-child {
+    border-top: none;
+    padding-top: 0 !important;
   }
 }
 

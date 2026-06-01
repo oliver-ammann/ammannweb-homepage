@@ -1,4 +1,4 @@
-import { BRAND_RED, FONT_FAMILY } from "../../constants";
+import { BRAND_RED, CTA_LABEL, FONT_FAMILY } from "../../constants";
 import { scrollToId } from "../../utils/scroll";
 
 export function Hero() {
@@ -26,7 +26,7 @@ export function Hero() {
             marginBottom: "28px",
           }}
         >
-          Webdesign · Zürich & Remote
+          Für Vereine & kleine Betriebe · Schweiz
         </p>
 
         <h1
@@ -42,9 +42,9 @@ export function Hero() {
         >
           Ihre Website.
           <br />
-          <span style={{ color: BRAND_RED }}>Fertig.</span>
+          <span style={{ color: BRAND_RED }}>CHF 900.</span>
           <br />
-          Bezahlbar.
+          Fertig.
         </h1>
 
         <p
@@ -53,12 +53,13 @@ export function Hero() {
             fontWeight: 300,
             lineHeight: 1.5,
             color: "rgba(255,255,255,0.65)",
-            maxWidth: "520px",
+            maxWidth: "560px",
             marginBottom: "48px",
           }}
         >
-          Kein Stundensatz-Theater. Kein aufgeblähter Prozess. Sie bekommen einen visuellen
-          Prototypen in 24h — und eine fertige Website zu einem Fixpreis.
+          Klarer Ablauf, Fixpreis, eine Ansprechperson. Sauber umgesetzt — für Sportvereine,
+          Vereine und kleine Betriebe, die einen Auftritt wollen, auf den sie sich verlassen
+          können.
         </p>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
@@ -81,7 +82,7 @@ export function Hero() {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Jetzt anfragen →
+            {CTA_LABEL} →
           </button>
           <button
             type="button"
@@ -105,47 +106,20 @@ export function Hero() {
           </button>
         </div>
 
-        <div
+        <p
           style={{
-            display: "flex",
-            gap: "48px",
-            marginTop: "80px",
-            paddingTop: "40px",
+            marginTop: "48px",
+            paddingTop: "32px",
             borderTop: "1px solid rgba(255,255,255,0.1)",
-            flexWrap: "wrap",
+            fontSize: "14px",
+            fontWeight: 600,
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.35)",
           }}
         >
-          {[
-            { num: "48h", label: "Durchschnittliche Lieferzeit" },
-            { num: "100%", label: "Fixpreis, keine Überraschungen" },
-            { num: "37+", label: "Projekte abgeschlossen" },
-          ].map((stat) => (
-            <div key={stat.num}>
-              <p
-                style={{
-                  fontSize: "clamp(28px, 4vw, 40px)",
-                  fontWeight: 900,
-                  color: "#fff",
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1,
-                  marginBottom: "6px",
-                }}
-              >
-                {stat.num}
-              </p>
-              <p
-                style={{
-                  fontSize: "13px",
-                  fontWeight: 400,
-                  color: "rgba(255,255,255,0.4)",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
+          100% Fixpreis — keine versteckten Kosten
+        </p>
       </div>
     </section>
   );

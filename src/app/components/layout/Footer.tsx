@@ -24,9 +24,9 @@ export function Footer() {
         }}
       >
         <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)", fontWeight: 400, margin: 0 }}>
-          © {year} ammannweb. Zürich, Schweiz.
+          © {year} ammannweb. Frauenfeld, Thurgau.
         </p>
-        <div style={{ display: "flex", gap: "20px" }}>
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
           <Link
             to="/impressum"
             style={{
@@ -54,6 +54,20 @@ export function Footer() {
             onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
           >
             Datenschutz
+          </Link>
+          <Link
+            to="/agb"
+            style={{
+              fontSize: "13px",
+              color: "rgba(255,255,255,0.3)",
+              fontWeight: 400,
+              textDecoration: "none",
+              transition: "color 0.15s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.3)")}
+          >
+            AGB
           </Link>
         </div>
       </div>

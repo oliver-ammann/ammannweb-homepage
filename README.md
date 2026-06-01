@@ -1,6 +1,6 @@
 # ammannweb
 
-Marketing website for [ammannweb](https://ammannweb.ch) — fast, fixed-price web design from Zürich.
+Marketing website for [ammannweb](https://ammannweb.ch) — fast, fixed-price web design from Frauenfeld, Thurgau.
 
 Built with React, Vite, and Tailwind CSS. Originally designed in [Figma](https://www.figma.com/design/abT0aoTEv5CQhSYVVAEsYU/One-Page-Website-Design).
 
@@ -26,7 +26,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `VITE_CONTACT_EMAIL` | Form submission recipient | `hallo@ammannweb.ch` |
+| `VITE_CONTACT_EMAIL` | Form submission recipient | `contact@ammannweb.ch` |
 | `VITE_SITE_URL` | Canonical URL for meta tags | `https://ammannweb.ch` |
 
 ### Contact form setup
@@ -79,6 +79,25 @@ Or install the [GitHub CLI](https://cli.github.com/) and run:
 ```bash
 gh repo create ammannweb --private --source=. --push
 ```
+
+## Legal pages
+
+Impressum, Datenschutz, and AGB are in `src/app/pages/`. Company details (name, address, UID) live in **`src/app/legal-config.ts`** — update placeholders before go-live.
+
+## Your profile (contact section)
+
+Edit **`src/app/profile-config.ts`** (bio, role) and **`legal-config.ts`** (`ownerName`).
+
+Add a square photo as **`public/profile.jpg`**, then set `photoSrc: "/profile.jpg"` in `profile-config.ts`.
+
+## WhatsApp & Threema
+
+In **`src/app/profile-config.ts`** (or via `.env` — env overrides profile-config):
+
+- `whatsappNumber` — e.g. `41791234567` (no `+` or spaces)
+- `threemaId` — your 8-character Threema ID
+
+Until set, the contact section shows both options as «— einrichten». On Vercel you can use `VITE_WHATSAPP_NUMBER` and `VITE_THREEMA_ID` instead.
 
 ## License
 

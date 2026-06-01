@@ -1,9 +1,11 @@
 import { useState, type CSSProperties, type FormEvent } from "react";
-import { BRAND_RED, FONT_FAMILY, SITE } from "../../constants";
+import { ContactChannels } from "../ContactChannels";
+import { OwnerIntro } from "../OwnerIntro";
+import { BRAND_RED, FONT_FAMILY, FORM_SUBMIT_LABEL, SITE } from "../../constants";
 import { submitContactForm } from "../../utils/contact";
 
 export function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", organization: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -18,7 +20,7 @@ export function Contact() {
       setSent(true);
     } catch {
       setError(
-        "Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an " +
+        "Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie mir direkt an " +
           SITE.email,
       );
     } finally {
@@ -79,45 +81,30 @@ export function Contact() {
                 fontWeight: 900,
                 letterSpacing: "-0.025em",
                 color: "#0d0d0d",
-                marginBottom: "24px",
+                marginBottom: "32px",
                 lineHeight: 1.1,
               }}
             >
-              Reden wir.
+              Schreiben Sie mir.
             </h2>
+
+            <OwnerIntro />
+
             <p
               style={{
                 fontSize: "17px",
                 fontWeight: 300,
                 lineHeight: 1.6,
                 color: "#555",
-                marginBottom: "48px",
+                marginBottom: "32px",
                 maxWidth: "380px",
               }}
             >
-              Kein Erstgespräch-Abo. Keine Verkaufspräsentation. Schreiben Sie uns — wir
-              antworten gleichen Tag.
+              Verein, Verband oder kleiner Betrieb — eine kurze Nachricht genügt. Unverbindlich
+              und unkompliziert.
             </p>
 
-            <a
-              href={`mailto:${SITE.email}`}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "10px",
-                fontSize: "18px",
-                fontWeight: 700,
-                color: "#0d0d0d",
-                textDecoration: "none",
-                letterSpacing: "-0.01em",
-                transition: "color 0.15s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = BRAND_RED)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#0d0d0d")}
-            >
-              {SITE.email}
-              <span style={{ fontSize: "20px" }}>→</span>
-            </a>
+            <ContactChannels />
 
             <div
               style={{
@@ -170,7 +157,7 @@ export function Contact() {
                     margin: 0,
                   }}
                 >
-                  Danke — wir melden uns.
+                  Danke — ich melde mich.
                 </p>
                 <p
                   style={{
@@ -180,7 +167,7 @@ export function Contact() {
                     margin: 0,
                   }}
                 >
-                  Normalerweise innerhalb weniger Stunden.
+                  Ausser ich bin grad auf einem Berg — dann mit Empfang.
                 </p>
               </div>
             ) : (
@@ -212,6 +199,35 @@ export function Contact() {
                     placeholder="Max Müller"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    style={inputStyle}
+                    onFocus={(e) => (e.currentTarget.style.borderBottomColor = "#0d0d0d")}
+                    onBlur={(e) =>
+                      (e.currentTarget.style.borderBottomColor = "rgba(0,0,0,0.2)")
+                    }
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="contact-organization"
+                    style={{
+                      display: "block",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      color: "#999",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Verein / Firma
+                  </label>
+                  <input
+                    id="contact-organization"
+                    type="text"
+                    name="organization"
+                    placeholder="FC Musterhausen, Meier GmbH, …"
+                    value={form.organization}
+                    onChange={(e) => setForm({ ...form, organization: e.target.value })}
                     style={inputStyle}
                     onFocus={(e) => (e.currentTarget.style.borderBottomColor = "#0d0d0d")}
                     onBlur={(e) =>
@@ -263,14 +279,14 @@ export function Contact() {
                       marginBottom: "8px",
                     }}
                   >
-                    Ihr Projekt
+                    Was brauchen Sie?
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
                     rows={4}
-                    placeholder="Kurze Beschreibung — was brauchen Sie?"
+                    placeholder="Neue Website, Relaunch, Termine & News — erzählen Sie uns Ihr Vorhaben."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     style={{
@@ -314,7 +330,7 @@ export function Contact() {
                     if (!submitting) e.currentTarget.style.opacity = "1";
                   }}
                 >
-                  {submitting ? "Wird gesendet…" : "Anfrage senden →"}
+                  {submitting ? "Wird gesendet…" : `${FORM_SUBMIT_LABEL} →`}
                 </button>
               </form>
             )}

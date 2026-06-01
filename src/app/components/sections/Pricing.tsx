@@ -1,38 +1,37 @@
-import { BRAND_RED, FONT_FAMILY } from "../../constants";
+import { BRAND_RED, CTA_LABEL, FONT_FAMILY } from "../../constants";
 import { scrollToId } from "../../utils/scroll";
 
 const PLANS = [
   {
-    name: "Einmaliges Projekt",
-    price: "ab CHF 1'900",
+    name: "Komplette Website",
+    price: "CHF 900",
     period: "einmalig",
-    desc: "Für Unternehmen, die eine neue Website benötigen. Fertig geliefert, kein Abo.",
+    desc: "Für Vereine und kleine Betriebe, die einen professionellen Auftritt brauchen — fertig geliefert, kein Abo nötig.",
     features: [
-      "Bis zu 8 Seiten",
-      "Responsives Design",
-      "Kontaktformular & Datenbankanbindung",
-      "Basis-SEO",
-      "3 Monate Gratis-Support",
-      "CMS auf Wunsch (nicht WordPress)",
+      "Startseite, News & Termine / Spielplan",
+      "Kontakt, Vorstand oder Team",
+      "Sponsoren- oder Partner-Bereich",
+      "Mobil optimiert, performant aufgebaut",
+      "Google-freundliche Grundlagen (SEO)",
+      "CMS-Einrichtung — Inhalte selbst pflegen",
+      "3 Monate technischer Support nach Launch",
     ],
-    cta: "Projekt anfragen",
-    featured: false,
+    featured: true,
   },
   {
-    name: "Monatliches Retainer",
-    price: "CHF 390",
+    name: "Wartung & Betrieb",
+    price: "CHF 79",
     period: "pro Monat",
-    desc: "Für Unternehmen, die laufend professionelle Web-Unterstützung wollen.",
+    desc: "Optional: Technik, Hosting und Sicherheit — nicht Redaktion. News und Termine pflegen Sie selbst im CMS.",
     features: [
-      "Website-Wartung & Updates",
-      "Bis zu 5h Änderungen/Monat",
-      "Hosting & Sicherheit",
-      "Performance-Monitoring",
-      "Monatlicher Report",
-      "Prioritäts-Support",
+      "Technische Wartung & Sicherheits-Updates",
+      "Hosting-Koordination & Betrieb",
+      "CMS bleibt eingerichtet und lauffähig",
+      "Hilfe bei technischen Fragen",
+      "Direkter Kontakt",
+      "Monatlich kündbar nach Mindestlaufzeit",
     ],
-    cta: "Retainer starten",
-    featured: true,
+    featured: false,
   },
 ] as const;
 
@@ -65,7 +64,7 @@ export function Pricing() {
             lineHeight: 1.1,
           }}
         >
-          Kein Stundensatz. Kein Bullshit.
+          Was es kostet. Punkt.
         </h2>
         <p
           style={{
@@ -73,11 +72,12 @@ export function Pricing() {
             fontWeight: 300,
             color: "#555",
             marginBottom: "56px",
-            maxWidth: "480px",
+            maxWidth: "520px",
             lineHeight: 1.5,
           }}
         >
-          Sie wissen von Anfang an, was Sie bezahlen. Kein Scope-Creep, keine Nachrechnung.
+          Fixpreise, transparent auf der Website. Sie wissen, was Sie investieren — ob FC,
+          Turnverein oder Handwerksbetrieb.
         </p>
 
         <div
@@ -116,7 +116,7 @@ export function Pricing() {
                     padding: "5px 12px",
                   }}
                 >
-                  Empfohlen
+                  Beliebt
                 </div>
               )}
 
@@ -209,14 +209,14 @@ export function Pricing() {
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                {plan.cta} →
+                {CTA_LABEL} →
               </button>
             </div>
           ))}
         </div>
 
         <p style={{ fontSize: "13px", color: "#999", marginTop: "20px", fontWeight: 400 }}>
-          Alle Preise exkl. MwSt. Massgeschneiderte Lösungen auf Anfrage.
+          Alle Preise exkl. MwSt. Grössere Projekte nach Absprache — immer mit Fixpreis.
         </p>
       </div>
     </section>

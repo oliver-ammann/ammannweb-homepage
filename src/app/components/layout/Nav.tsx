@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
-import { BRAND_RED, FONT_FAMILY, NAV_LINKS } from "../../constants";
+import { BRAND_RED, CTA_LABEL, FONT_FAMILY, NAV_LINKS } from "../../constants";
 import { scrollToId, scrollToTop } from "../../utils/scroll";
 
 export function Nav() {
@@ -109,7 +109,7 @@ export function Nav() {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Projekt anfangen
+            {CTA_LABEL}
           </button>
         </div>
 

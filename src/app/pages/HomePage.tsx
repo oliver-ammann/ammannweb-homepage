@@ -1,9 +1,9 @@
+import { Benefits } from "../components/sections/Benefits";
 import { Contact } from "../components/sections/Contact";
 import { Hero } from "../components/sections/Hero";
-import { Portfolio } from "../components/sections/Portfolio";
 import { Pricing } from "../components/sections/Pricing";
+import { Process } from "../components/sections/Process";
 import { Services } from "../components/sections/Services";
-import { TechStack } from "../components/sections/TechStack";
 import { Footer } from "../components/layout/Footer";
 import { Nav } from "../components/layout/Nav";
 import { FONT_FAMILY } from "../constants";
@@ -20,10 +20,10 @@ export function HomePage() {
     >
       <Nav />
       <Hero />
-      <Portfolio />
-      <TechStack />
-      <Services />
       <Pricing />
+      <Process />
+      <Benefits />
+      <Services />
       <Contact />
       <Footer />
     </div>

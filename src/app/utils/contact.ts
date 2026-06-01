@@ -2,6 +2,7 @@ import { SITE } from "../constants";
 
 export type ContactFormData = {
   name: string;
+  organization: string;
   email: string;
   message: string;
 };
@@ -17,6 +18,7 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
     },
     body: JSON.stringify({
       name: data.name,
+      organization: data.organization || "—",
       email: data.email,
       message: data.message,
       _subject: `Neue Anfrage von ${SITE.name}`,
