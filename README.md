@@ -62,6 +62,24 @@ src/
   styles/         # Tailwind, theme, fonts
 ```
 
+## Push to GitHub
+
+The repo has an initial commit on `main`. To create the remote repository:
+
+1. Create a new empty repository named `ammannweb` on GitHub (no README or `.gitignore`).
+2. Link and push:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/ammannweb.git
+git push -u origin main
+```
+
+Or install the [GitHub CLI](https://cli.github.com/) and run:
+
+```bash
+gh repo create ammannweb --private --source=. --push
+```
+
 ## License
 
 Private — © ammannweb.
