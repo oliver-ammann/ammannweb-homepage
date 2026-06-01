@@ -1,0 +1,37 @@
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .service-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-grid > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .portfolio-feature {
+    grid-template-columns: 1fr !important;
+  }
+  .portfolio-feature .portfolio-details {
+    border-left: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+::placeholder {
+  color: #bbb;
+}
