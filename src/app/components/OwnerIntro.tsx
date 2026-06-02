@@ -38,7 +38,13 @@ export function OwnerIntro() {
             alt={showPlaceholderName ? "Profilfoto" : `Profilfoto von ${name}`}
             width={96}
             height={96}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center 12%",
+              display: "block",
+            }}
             onError={() => setPhotoFailed(true)}
           />
         ) : (

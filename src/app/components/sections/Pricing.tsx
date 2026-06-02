@@ -215,8 +215,31 @@ export function Pricing() {
           ))}
         </div>
 
-        <p style={{ fontSize: "13px", color: "#999", marginTop: "20px", fontWeight: 400 }}>
+        <p
+          style={{
+            fontSize: "13px",
+            color: "#999",
+            marginTop: "20px",
+            fontWeight: 400,
+            lineHeight: 1.55,
+            maxWidth: "720px",
+          }}
+        >
           Alle Preise exkl. MwSt. Grössere Projekte nach Absprache — immer mit Fixpreis.
+        </p>
+        <p
+          style={{
+            fontSize: "13px",
+            color: "#999",
+            marginTop: "10px",
+            fontWeight: 400,
+            lineHeight: 1.55,
+            maxWidth: "720px",
+          }}
+        >
+          Hosting & Übergabe: Auf Wunsch empfehle ich eine passende Lösung und erledige die
+          einmalige Einrichtung für die Übergabe (Domain und laufende Kosten laufen auf Ihrem
+          Namen). Sie können die Website auch ohne diesen Service übernehmen.
         </p>
       </div>
     </section>

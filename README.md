@@ -1,16 +1,16 @@
 # ammannweb
 
-Marketing website for [ammannweb](https://ammannweb.ch) — fast, fixed-price web design from Frauenfeld, Thurgau.
+Marketing website for [ammannweb](https://ammannweb.ch) — fixed-price web design for Vereine and small businesses, from Frauenfeld, Thurgau.
 
-Built with React, Vite, and Tailwind CSS. Originally designed in [Figma](https://www.figma.com/design/abT0aoTEv5CQhSYVVAEsYU/One-Page-Website-Design).
+Built with React 18, Vite 6, TypeScript, and Tailwind CSS 4. Originally designed in [Figma](https://www.figma.com/design/abT0aoTEv5CQhSYVVAEsYU/One-Page-Website-Design).
 
 ## Features
 
-- One-page landing (Hero, Portfolio, Services, Pricing, Contact)
+- One-page landing: Hero → Pricing → Process → Benefits → Services → Contact
 - Working contact form via [FormSubmit](https://formsubmit.co)
-- Legal pages: Impressum & Datenschutz
-- Responsive layout
-- SPA routing with static-hosting fallbacks (Netlify, Vercel)
+- Legal pages: Impressum, Datenschutz, AGB
+- Self-hosted fonts (DM Sans via `@fontsource`)
+- Responsive layout, SPA routing (Vercel / Netlify)
 
 ## Getting started
 
@@ -32,7 +32,7 @@ Open [http://localhost:5173](http://localhost:5173).
 ### Contact form setup
 
 1. Copy `.env.example` to `.env` and set `VITE_CONTACT_EMAIL`.
-2. On first production deploy, FormSubmit will send a confirmation email to that address — click the link to activate.
+2. On first production deploy, FormSubmit sends a confirmation email to that address — click the link to activate.
 3. Test the form on the live site.
 
 ## Scripts
@@ -48,56 +48,40 @@ Open [http://localhost:5173](http://localhost:5173).
 
 Build output is in `dist/`. Works on any static host:
 
-- **Vercel / Netlify**: Connect the repo; build command `npm run build`, output `dist`.
-- **GitHub Pages**: Use the included CI workflow or deploy `dist` manually.
+- **Vercel** (recommended): Connect the repo; build command `npm run build`, output `dist`. Set env vars in the dashboard.
+- **Netlify**: Same build settings; `public/_redirects` included for SPA fallback.
+
+Link preview image: `public/og.png` (referenced from `index.html` Open Graph tags).
 
 ## Project structure
 
 ```
 src/
   app/
-    components/   # Layout, sections, utilities
-    pages/        # Home, Impressum, Datenschutz
+    components/   # Layout, sections, contact
+    pages/        # Home, Impressum, Datenschutz, AGB
     constants.ts
+    legal-config.ts
+    profile-config.ts
   styles/         # Tailwind, theme, fonts
+public/
+  favicon.svg
+  og.png          # Social sharing (1200×630)
 ```
 
-## Push to GitHub
+## Configuration
 
-The repo has an initial commit on `main`. To create the remote repository:
+| File | Purpose |
+|------|---------|
+| `src/app/constants.ts` | Brand color, CTA labels, `SITE` (email, URL, location) |
+| `src/app/legal-config.ts` | Impressum / AGB / Datenschutz entity details |
+| `src/app/profile-config.ts` | Bio, role, photo path |
 
-1. Create a new empty repository named `ammannweb` on GitHub (no README or `.gitignore`).
-2. Link and push:
+## Pre-go-live checklist
 
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/ammannweb.git
-git push -u origin main
-```
-
-Or install the [GitHub CLI](https://cli.github.com/) and run:
-
-```bash
-gh repo create ammannweb --private --source=. --push
-```
-
-## Legal pages
-
-Impressum, Datenschutz, and AGB are in `src/app/pages/`. Company details (name, address, UID) live in **`src/app/legal-config.ts`** — update placeholders before go-live.
-
-## Your profile (contact section)
-
-Edit **`src/app/profile-config.ts`** (bio, role) and **`legal-config.ts`** (`ownerName`).
-
-Add a square photo as **`public/profile.jpg`**, then set `photoSrc: "/profile.jpg"` in `profile-config.ts`.
-
-## WhatsApp & Threema
-
-In **`src/app/profile-config.ts`** (or via `.env` — env overrides profile-config):
-
-- `whatsappNumber` — e.g. `41791234567` (no `+` or spaces)
-- `threemaId` — your 8-character Threema ID
-
-Until set, the contact section shows both options as «— einrichten». On Vercel you can use `VITE_WHATSAPP_NUMBER` and `VITE_THREEMA_ID` instead.
+- Fill street address (and UID / MWST if applicable) in `legal-config.ts`
+- Add `public/profile.jpg`, set `photoSrc` in `profile-config.ts`
+- Deploy to Vercel, set env vars, confirm domain + FormSubmit activation
 
 ## License
 

@@ -42,9 +42,9 @@ export function Hero() {
         >
           Ihre Website.
           <br />
-          <span style={{ color: BRAND_RED }}>CHF 900.</span>
+          <span style={{ color: BRAND_RED }}>Fixpreis.</span>
           <br />
-          Fertig.
+          Keine Überraschungen.
         </h1>
 
         <p

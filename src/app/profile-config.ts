@@ -13,14 +13,7 @@ export const PROFILE = {
    * Path to photo in /public, e.g. "/profile.jpg".
    * Leave empty until you have a photo — then initials are shown instead.
    */
-  photoSrc: "" as string,
-  /**
-   * WhatsApp: country code + number, no + or spaces (e.g. "41791234567").
-   * Also overridable via VITE_WHATSAPP_NUMBER in .env
-   */
-  whatsappNumber: "" as string,
-  /** Threema ID, 8 characters (e.g. "ABCD1234"). Also overridable via VITE_THREEMA_ID in .env */
-  threemaId: "" as string,
+  photoSrc: "/profile.jpg",
 } as const;
 
 export function displayName(): string {

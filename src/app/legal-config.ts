@@ -11,7 +11,7 @@ export const LEGAL = {
   legalForm: "Einzelunternehmen",
   /** Vollständiger Name des Inhabers oder der vertretungsberechtigten Person */
   ownerName: "Oliver Ammann",
-  street: "[Strasse, Hausnummer]",
+  street: "Schlössliweg 6",
   zip: "8500",
   city: "Frauenfeld",
   canton: "Thurgau",

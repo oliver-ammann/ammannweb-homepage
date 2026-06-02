@@ -94,16 +94,7 @@ export function DatenschutzPage() {
         keine gesetzliche Aufbewahrungspflicht besteht.
       </p>
 
-      <h2>6. WhatsApp und Threema</h2>
-      <p>
-        Auf der Website können optional Links zu <strong>WhatsApp</strong> (WhatsApp LLC /
-        Meta, USA) und <strong>Threema</strong> (Threema GmbH, Schweiz) angeboten werden.
-        Wenn Sie uns über diese Kanäle kontaktieren, bearbeiten wir Ihre Nachrichten dort
-        gemäss den Bedingungen der jeweiligen Anbieter. Für verbindliche Offerten und
-        Verträge bitten wir um Kommunikation per E-Mail.
-      </p>
-
-      <h2>7. Hosting</h2>
+      <h2>6. Hosting</h2>
       <p>
         Diese Website wird bei <strong>Vercel Inc.</strong> (USA) gehostet. Beim Aufruf
         der Seiten werden technische Zugriffsdaten auf Servern verarbeitet, die je nach
@@ -111,14 +102,14 @@ export function DatenschutzPage() {
         verarbeitet Daten in unserem Auftrag als Auftragsbearbeiter.
       </p>
 
-      <h2>8. Schriftarten</h2>
+      <h2>7. Schriftarten</h2>
       <p>
         Die auf dieser Website verwendeten Schriftarten werden zusammen mit der Website
         ausgeliefert (Self-Hosting). Beim Laden der Seite werden dafür keine Verbindungen
         zu externen Font-CDNs aufgebaut.
       </p>
 
-      <h2>9. Cookies und Analyse</h2>
+      <h2>8. Cookies und Analyse</h2>
       <p>
         Diese Website setzt keine Marketing- oder Tracking-Cookies ein und verwendet keine
         Analyse-Tools wie Google Analytics. Technisch notwendige Cookies oder
@@ -126,7 +117,7 @@ export function DatenschutzPage() {
         wir künftig weitere Dienste einsetzen, wird diese Erklärung angepasst.
       </p>
 
-      <h2>10. Aufbewahrungsdauer</h2>
+      <h2>9. Aufbewahrungsdauer</h2>
       <p>
         Kontaktanfragen ohne Vertragsabschluss werden in der Regel innerhalb von 12
         Monaten gelöscht, sofern keine längere Aufbewahrung erforderlich ist.
@@ -135,7 +126,7 @@ export function DatenschutzPage() {
         Richtlinien rotiert (typischerweise wenige Wochen bis Monate).
       </p>
 
-      <h2>11. Weitergabe an Dritte</h2>
+      <h2>10. Weitergabe an Dritte</h2>
       <p>
         Personendaten werden nur weitergegeben, wenn dies zur Vertragserfüllung
         erforderlich ist (z.&nbsp;B. Hosting, E-Mail, Zahlungsabwicklung), wir gesetzlich
@@ -143,15 +134,15 @@ export function DatenschutzPage() {
         Werbezwecken findet nicht statt.
       </p>
 
-      <h2>12. Datenübermittlung ins Ausland</h2>
+      <h2>11. Datenübermittlung ins Ausland</h2>
       <p>
-        Durch FormSubmit, Vercel und WhatsApp können Personendaten in Länder ohne
+        Durch FormSubmit und Vercel können Personendaten in Länder ohne
         angemessenes Datenschutzniveau (insbesondere USA) gelangen. Soweit erforderlich,
         stützen wir uns auf geeignete Garantien (z.&nbsp;B. Standardvertragsklauseln) oder
         Ihre Einwilligung im Rahmen der Kontaktaufnahme.
       </p>
 
-      <h2>13. Ihre Rechte</h2>
+      <h2>12. Ihre Rechte</h2>
       <p>Sie haben insbesondere folgende Rechte:</p>
       <ul>
         <li>Auskunft über die bearbeiteten Personendaten</li>
@@ -167,7 +158,7 @@ export function DatenschutzPage() {
         Gesuche in der Regel innerhalb von 30 Tagen.
       </p>
 
-      <h2>14. Beschwerderecht</h2>
+      <h2>13. Beschwerderecht</h2>
       <p>
         Sie können eine Beschwerde beim Eidgenössischen Datenschutz- und
         Öffentlichkeitsbeauftragten (EDÖB) einreichen:{" "}
@@ -178,14 +169,14 @@ export function DatenschutzPage() {
         ihres Wohnsitzes wenden.
       </p>
 
-      <h2>15. Datensicherheit</h2>
+      <h2>14. Datensicherheit</h2>
       <p>
         Wir treffen angemessene technische und organisatorische Massnahmen (z.&nbsp;B.
         TLS-Verschlüsselung, Zugangsbeschränkungen, sichere Passwörter), um Personendaten
         vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen.
       </p>
 
-      <h2>16. Änderungen</h2>
+      <h2>15. Änderungen</h2>
       <p>
         Wir können diese Datenschutzerklärung bei Bedarf anpassen. Die jeweils aktuelle
         Fassung ist auf dieser Seite abrufbar.
