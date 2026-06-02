@@ -44,6 +44,23 @@ Open [http://localhost:5173](http://localhost:5173).
 | `npm run preview` | Preview production build |
 | `npm run typecheck` | Run TypeScript only |
 
+## Git workflow
+
+| Branch | Use |
+|--------|-----|
+| `develop` | Default branch for changes — push here |
+| `main` | Production — merge only via **PR** `develop` → `main` |
+
+```bash
+git checkout develop
+git pull origin develop
+# … work, commit …
+git push origin develop
+# Open PR on GitHub, merge when ready
+```
+
+Vercel deploys **preview** from `develop` and **production** from `main`.
+
 ## Deploy
 
 Build output is in `dist/`. Works on any static host:
