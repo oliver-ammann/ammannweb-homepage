@@ -7,6 +7,31 @@ export type ContactFormData = {
   message: string;
 };
 
+type FormSubmitResponse = {
+  success?: string | boolean;
+  message?: string;
+};
+
+function isFormSubmitSuccess(value: FormSubmitResponse["success"]): boolean {
+  return value === true || value === "true";
+}
+
+function userFacingError(data: FormSubmitResponse): string {
+  const apiMessage = data.message ?? "";
+
+  if (/activation/i.test(apiMessage)) {
+    return (
+      "Das Kontaktformular wird gerade eingerichtet. " +
+      `Bitte schreiben Sie mir vorerst direkt an ${SITE.email}.`
+    );
+  }
+
+  return (
+    "Die Anfrage konnte nicht gesendet werden. " +
+    `Bitte schreiben Sie mir direkt an ${SITE.email}.`
+  );
+}
+
 export async function submitContactForm(data: ContactFormData): Promise<void> {
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(SITE.email)}`;
 
@@ -21,17 +46,21 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
       organization: data.organization || "—",
       email: data.email,
       message: data.message,
+      _replyto: data.email,
       _subject: `Neue Anfrage von ${SITE.name}`,
       _template: "table",
+      _captcha: "false",
     }),
   });
 
-  if (!response.ok) {
-    throw new Error("Formular konnte nicht gesendet werden.");
+  let result: FormSubmitResponse;
+  try {
+    result = (await response.json()) as FormSubmitResponse;
+  } catch {
+    throw new Error(userFacingError({}));
   }
 
-  const result = (await response.json()) as { success?: string };
-  if (result.success !== "true") {
-    throw new Error("Formular konnte nicht gesendet werden.");
+  if (!response.ok || !isFormSubmitSuccess(result.success)) {
+    throw new Error(userFacingError(result));
   }
 }
