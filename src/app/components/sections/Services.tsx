@@ -4,7 +4,7 @@ const POINTS = [
   {
     num: "01",
     title: "Qualität mit Sorgfalt.",
-    body: "Kein Template von der Stange. Design und Umsetzung werden durchdacht — mit Entwurf zur Freigabe, bevor etwas live geht.",
+    body: "Durchdachtes Design im bewährten Aufbau — angepasst an Ihren Verein, nicht ein anonymes Baukasten-Theme. Mit Entwurf zur Freigabe, bevor etwas live geht.",
   },
   {
     num: "02",

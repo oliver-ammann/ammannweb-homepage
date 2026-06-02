@@ -9,7 +9,7 @@ const BENEFITS = [
   {
     title: "Hosting & Technik",
     detail:
-      "Domain, SSL und Betrieb auf Ihrem Namen — ich richte es ein, datenschutzbewusst (nDSG) und ohne Billig-Hosting.",
+      "Vercel, CMS und Domain-DNS richte ich ein; Betrieb und Rechnungen auf Ihrem Namen — datenschutzbewusst (nDSG), ohne Billig-Hosting.",
   },
   {
     title: "CMS inklusive",

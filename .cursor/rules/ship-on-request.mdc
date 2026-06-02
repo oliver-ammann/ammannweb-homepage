@@ -1,0 +1,10 @@
+---
+description: When user says "ship", run the develop→main PR workflow
+alwaysApply: true
+---
+
+# Trigger: ship
+
+If the user's message is **only** `ship` (case-insensitive, no other words), or they use the **`/ship`** slash command, execute the workflow in `.cursor/commands/ship.md` immediately: build, commit on `develop`, push, open or show PR to `main`.
+
+Optional words after `ship` in chat (e.g. `ship fix pricing`) = commit message.
