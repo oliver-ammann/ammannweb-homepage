@@ -18,10 +18,12 @@ export function Contact() {
     try {
       await submitContactForm(form);
       setSent(true);
-    } catch {
+    } catch (err) {
       setError(
-        "Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie mir direkt an " +
-          SITE.email,
+        err instanceof Error
+          ? err.message
+          : "Die Anfrage konnte nicht gesendet werden. Bitte schreiben Sie mir direkt an " +
+              SITE.email,
       );
     } finally {
       setSubmitting(false);

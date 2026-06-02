@@ -3,16 +3,23 @@ import { FONT_FAMILY } from "../../constants";
 const BENEFITS = [
   {
     title: "Mobil & performant",
-    detail: "Sauber aufgebaut und auf dem Handy gut nutzbar — für Mitglieder und Kunden unterwegs.",
+    detail:
+      "Schnell geladen, klar strukturiert — auf dem Smartphone genauso gut nutzbar wie am Desktop.",
   },
-  { title: "Schweizer Hosting", detail: "DSGVO-konform, Daten in der EU. Kein Billig-Hosting aus dem Nichts." },
+  {
+    title: "Hosting & Technik",
+    detail:
+      "Domain, SSL und Betrieb auf Ihrem Namen — ich richte es ein, datenschutzbewusst (nDSG) und ohne Billig-Hosting.",
+  },
   {
     title: "CMS inklusive",
-    detail: "Ich richte ein übersichtliches CMS ein — News, Termine und Vorstand pflegen Sie selbst.",
+    detail:
+      "Übersichtliches CMS für News, Termine und Vorstand — Inhalte pflegen Sie selbst, ohne mich für jeden Text.",
   },
   {
     title: "Eine Person",
-    detail: "Kein Ticketsystem. Sie erreichen uns direkt — eine Ansprechperson für Ihr Projekt.",
+    detail:
+      "Kein Ticketsystem, kein Weiterleiten: Sie schreiben mir, ich antworte — eine feste Ansprechperson.",
   },
 ] as const;
 
