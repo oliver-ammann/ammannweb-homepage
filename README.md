@@ -53,11 +53,14 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ```bash
 git checkout develop
-git pull origin develop
-# … work, commit …
-git push origin develop
-# Open PR on GitHub, merge when ready
+# … work …
 ```
+
+**In Cursor:** type **`/ship`** (or just **`ship`** in chat) — the agent builds, commits, pushes `develop`, and opens a PR to `main`. Optional: `/ship fix pricing copy`.
+
+Requires [GitHub CLI](https://cli.github.com/) (`gh auth login`). Command definition: `.cursor/commands/ship.md` (global copy: `~/.cursor/commands/ship.md`).
+
+Optional terminal shortcut: `npm run ship -- --build "message"` (`scripts/ship-to-main.ps1`).
 
 Vercel deploys **preview** from `develop` and **production** from `main`.
 

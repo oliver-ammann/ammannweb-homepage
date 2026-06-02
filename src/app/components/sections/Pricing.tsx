@@ -7,6 +7,10 @@ const PLANS = [
     price: "CHF 900",
     period: "einmalig",
     desc: "Für Vereine und kleine Betriebe, die einen professionellen Auftritt brauchen — fertig geliefert, kein Abo nötig.",
+    scopeIncluded:
+      "Vereins-Setup im bewährten Aufbau, 2 Feedback-Runden, Launch + CMS-Einweisung.",
+    scopeExtra:
+      "Weitere Sprachen, Shop, zusätzliche Feedback-Runden, laufende Textpflege.",
     features: [
       "Startseite, News & Termine / Spielplan",
       "Kontakt, Vorstand oder Team",
@@ -22,6 +26,7 @@ const PLANS = [
     name: "Wartung & Betrieb",
     price: "CHF 79",
     period: "pro Monat",
+    minTerm: "Mindestlaufzeit 3 Monate",
     desc: "Optional: Technik, Hosting und Sicherheit — nicht Redaktion. News und Termine pflegen Sie selbst im CMS.",
     features: [
       "Technische Wartung & Sicherheits-Updates",
@@ -31,6 +36,8 @@ const PLANS = [
       "Direkter Kontakt",
       "Monatlich kündbar nach Mindestlaufzeit",
     ],
+    notIncluded:
+      "Nicht enthalten: Texte, Bilder oder Inhalte pflegen — das machen Sie selbst im CMS.",
     featured: false,
   },
 ] as const;
@@ -150,11 +157,22 @@ export function Pricing() {
                 style={{
                   fontSize: "13px",
                   color: plan.featured ? "rgba(255,255,255,0.35)" : "#aaa",
-                  marginBottom: "20px",
+                  marginBottom: "minTerm" in plan && plan.minTerm ? "4px" : "20px",
                 }}
               >
                 {plan.period}
               </p>
+              {"minTerm" in plan && plan.minTerm ? (
+                <p
+                  style={{
+                    fontSize: "13px",
+                    color: plan.featured ? "rgba(255,255,255,0.35)" : "#aaa",
+                    marginBottom: "20px",
+                  }}
+                >
+                  {plan.minTerm}
+                </p>
+              ) : null}
 
               <p
                 style={{
@@ -188,6 +206,49 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
+
+              {"notIncluded" in plan && plan.notIncluded ? (
+                <p
+                  style={{
+                    fontSize: "13px",
+                    fontWeight: 400,
+                    lineHeight: 1.55,
+                    color: plan.featured ? "rgba(255,255,255,0.45)" : "#888",
+                    margin: "0 0 24px",
+                  }}
+                >
+                  {plan.notIncluded}
+                </p>
+              ) : null}
+
+              {"scopeIncluded" in plan && plan.scopeIncluded ? (
+                <div style={{ marginBottom: "32px" }}>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 400,
+                      lineHeight: 1.55,
+                      color: "rgba(255,255,255,0.45)",
+                      margin: "0 0 8px",
+                    }}
+                  >
+                    <span style={{ color: "rgba(255,255,255,0.6)" }}>Inbegriffen: </span>
+                    {plan.scopeIncluded}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "13px",
+                      fontWeight: 400,
+                      lineHeight: 1.55,
+                      color: "rgba(255,255,255,0.45)",
+                      margin: 0,
+                    }}
+                  >
+                    <span style={{ color: "rgba(255,255,255,0.6)" }}>Zusätzlich nach Offerte: </span>
+                    {plan.scopeExtra}
+                  </p>
+                </div>
+              ) : null}
 
               <button
                 type="button"
@@ -225,7 +286,8 @@ export function Pricing() {
             maxWidth: "720px",
           }}
         >
-          Alle Preise exkl. MwSt. Grössere Projekte nach Absprache — immer mit Fixpreis.
+          Alle Preise exkl. MwSt. Grössere Projekte nach Absprache (ab ca. CHF 1'400) —
+          immer mit Fixpreis.
         </p>
         <p
           style={{
@@ -237,9 +299,9 @@ export function Pricing() {
             maxWidth: "720px",
           }}
         >
-          Hosting & Übergabe: Auf Wunsch empfehle ich eine passende Lösung und erledige die
-          einmalige Einrichtung für die Übergabe (Domain und laufende Kosten laufen auf Ihrem
-          Namen). Sie können die Website auch ohne diesen Service übernehmen.
+          Hosting & Übergabe: Ich richte Vercel, CMS und Domain-DNS ein; laufende Rechnungen
+          laufen auf Ihrem Konto. Die einmalige Einrichtung übernehme ich auf Wunsch — Sie können
+          die Website auch ohne diesen Service selbst betreiben.
         </p>
       </div>
     </section>

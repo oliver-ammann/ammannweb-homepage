@@ -106,6 +106,19 @@ export function Contact() {
               und unkompliziert.
             </p>
 
+            <p
+              style={{
+                fontSize: "14px",
+                fontWeight: 400,
+                lineHeight: 1.5,
+                color: "#888",
+                marginBottom: "24px",
+                maxWidth: "380px",
+              }}
+            >
+              Am schnellsten per E-Mail oder Formular.
+            </p>
+
             <ContactChannels />
 
             <div

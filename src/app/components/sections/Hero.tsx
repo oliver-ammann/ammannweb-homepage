@@ -26,7 +26,7 @@ export function Hero() {
             marginBottom: "28px",
           }}
         >
-          Für Vereine & kleine Betriebe · Schweiz
+          Für Vereine & kleine Betriebe · Ostschweiz & remote
         </p>
 
         <h1
@@ -57,9 +57,9 @@ export function Hero() {
             marginBottom: "48px",
           }}
         >
-          Klarer Ablauf, Fixpreis, eine Ansprechperson. Sauber umgesetzt — für Sportvereine,
-          Vereine und kleine Betriebe, die einen Auftritt wollen, auf den sie sich verlassen
-          können.
+          Klarer Ablauf, Fixpreis, eine Ansprechperson. Sauber umgesetzt — typisch für
+          Sportvereine, Turnvereine und lokale Betriebe, die einen Auftritt wollen, auf den sie
+          sich verlassen können.
         </p>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>

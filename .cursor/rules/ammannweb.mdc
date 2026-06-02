@@ -1,0 +1,120 @@
+---
+description: ammannweb marketing site — project context, conventions, and content guardrails
+alwaysApply: true
+---
+
+# ammannweb
+
+One-page marketing site for **Oliver Ammann**’s solo web-design side business (Vereine + small businesses), based in **Frauenfeld, Thurgau, Schweiz**. Language: **German (Swiss)** for all user-facing copy.
+
+- **Repo:** https://github.com/oliver-ammann/ammannweb-homepage
+- **Production URL:** https://ammannweb.ch
+- **Contact email:** contact@ammannweb.ch
+
+## Stack
+
+React 18 · Vite 6 · TypeScript · Tailwind 4 · React Router 7 · static SPA on Vercel.
+
+```bash
+npm install && npm run dev    # http://localhost:5173
+npm run build                 # tsc + vite build → dist/
+```
+
+Do not add backend, CMS runtime, or heavy dependencies unless explicitly requested.
+
+## Layout & routing
+
+Home sections (order matters): **Hero → Pricing → Process → Benefits → Services → Contact**.
+
+| Route | File |
+|-------|------|
+| `/` | `src/app/pages/HomePage.tsx` |
+| `/impressum` | `src/app/pages/ImpressumPage.tsx` |
+| `/datenschutz` | `src/app/pages/DatenschutzPage.tsx` |
+| `/agb` | `src/app/pages/AgbPage.tsx` |
+
+Sections live in `src/app/components/sections/`. Layout: `Nav`, `Footer`, `LegalLayout`. SPA rewrites in `vercel.json`.
+
+## Config — edit these, not hardcoded duplicates
+
+| File | Purpose |
+|------|---------|
+| `src/app/constants.ts` | Brand color, CTA labels, `SITE` (email/url/location), nav links |
+| `src/app/legal-config.ts` | Legal entity (Impressum, AGB, Datenschutz) |
+| `src/app/profile-config.ts` | Bio, role, photo path |
+| `.env.example` | `VITE_CONTACT_EMAIL`, `VITE_SITE_URL` |
+
+Keep legal and pricing facts in sync across pages.
+
+## Business & copy guardrails
+
+**Positioning:** Vereine and small businesses. Solo operator — personal, direct, not agency-scale.
+
+**Pricing (fixed, no hourly):**
+- Website: **CHF 900** one-time
+- Retainer: **CHF 79/month** — **technical only** (hosting, updates, CMS uptime). Client edits content in CMS themselves. Not content editing or handyman work.
+
+**Do not reintroduce:**
+- Portfolio / case-study section (no projects yet)
+- Tech-stack showcase section
+- Delivery time promises (“Prototyp in 24h”, stats)
+- Hourly billing language
+- Google Fonts CDN — fonts are **self-hosted** via `@fontsource/dm-sans` in `src/styles/fonts.css`
+
+**Tone:** Light, trustworthy Swiss German. One intentional humor line lives in `profile-config.ts` bio (+ optional Berg reference in form thank-you). Do not scatter agency-bashing elsewhere.
+
+**CTA labels:** Nav/buttons → `Anfrage senden` (`CTA_LABEL`). Form submit → `Nachricht senden` (`FORM_SUBMIT_LABEL`).
+
+**AGB:** Retainer price references the **website-published price at contract time**, not a hardcoded CHF 79 in legal text.
+
+## Contact
+
+- Form: FormSubmit.co via `src/app/utils/contact.ts` — no API key; first live submit activates email.
+- Contact: form + email via `ContactChannels.tsx`.
+
+## Styling conventions
+
+- Brand red: `#D4621A` (`BRAND_RED`)
+- Font: DM Sans (`FONT_FAMILY`)
+- Most components use **inline `style` props**, not Tailwind classes — match existing sections when editing UI
+- Minimize diff scope; reuse `scrollToId`, existing layout patterns
+
+## Legal / privacy
+
+Datenschutz must disclose FormSubmit + Vercel hosting. Fonts are self-hosted (no Google Fonts section). Update `legal-config.ts` placeholders (street, UID, phone) before go-live.
+
+## Pre-go-live checklist (user-owned)
+
+- Fill `legal-config.ts` street address
+- Add `public/profile.jpg`, set `photoSrc` in `profile-config.ts`
+- Deploy on Vercel with env vars; confirm FormSubmit activation
+
+## Git & deployment
+
+| Branch | Purpose |
+|--------|---------|
+| **`develop`** | Day-to-day work — commit and push here |
+| **`main`** | Production — **only** via PR from `develop` (no direct pushes) |
+
+- Vercel: **`main`** → production (`ammannweb.ch` / production URL); **`develop`** → preview deployments.
+- Ship to production: type **`/ship`** or **`ship`** in Cursor (see `.cursor/commands/ship.md`). Optional: `npm run ship -- --build "message"`.
+- After merge to `main`, production redeploys from Git automatically.
+
+## Linear (work tracking)
+
+**Linear is the source of truth** for client work and operational tasks. Inbound client projects land in Linear (not ad-hoc in chat).
+
+- **Marketing site (this repo):** issues in an internal / `ammannweb` Linear project → `ammannweb-homepage` on GitHub.
+- **Each client website:** **new Linear project** + **new Git repo** from [`client-site-template`](https://github.com/oliver-ammann/client-site-template) (never client code in `ammannweb-homepage`).
+- When the user references an issue (e.g. `AMM-12` or a client project issue), use Linear MCP to read status, description, and acceptance criteria before coding — and confirm **which repo** to use.
+- PR titles/bodies may reference the Linear issue ID; prefer closing/moving the issue when work ships.
+- Do not invent client scope — if unclear, ask or read the Linear issue.
+
+## Agent defaults
+
+- **Branch:** Check out `develop` for changes; never commit or push directly to `main` unless the user explicitly asks.
+- **Linear:** Check issue context for client or tracked tasks; keep plugin enabled in Cursor.
+- Prefer config files over scattering magic strings
+- Keep README accurate when changing features or env vars
+- Do not commit `.env`, secrets, or `dist/`, or `.cursor/`
+- Only create git commits when the user asks
