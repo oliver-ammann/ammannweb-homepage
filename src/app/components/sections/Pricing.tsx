@@ -3,7 +3,7 @@ import { scrollToId } from "../../utils/scroll";
 
 const PLANS = [
   {
-    name: "Komplette Website",
+    name: "Komplett-Paket",
     price: "CHF 900",
     period: "einmalig",
     desc: "Für Vereine und kleine Betriebe, die einen professionellen Auftritt brauchen — fertig geliefert, kein Abo nötig.",
@@ -23,7 +23,7 @@ const PLANS = [
     featured: true,
   },
   {
-    name: "Wartung & Betrieb",
+    name: "Sorglos-Paket",
     price: "CHF 79",
     period: "pro Monat",
     minTerm: "Mindestlaufzeit 3 Monate",
@@ -105,28 +105,8 @@ export function Pricing() {
                 borderRight: i === 0 ? "1px solid rgba(0,0,0,0.12)" : "none",
                 display: "flex",
                 flexDirection: "column",
-                position: "relative",
               }}
             >
-              {plan.featured && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    right: "0",
-                    background: BRAND_RED,
-                    color: "#fff",
-                    fontSize: "10px",
-                    fontWeight: 700,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    padding: "5px 12px",
-                  }}
-                >
-                  Beliebt
-                </div>
-              )}
-
               <p
                 style={{
                   fontSize: "12px",
