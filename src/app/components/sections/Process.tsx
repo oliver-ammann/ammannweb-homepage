@@ -60,12 +60,27 @@ export function Process() {
             fontSize: "17px",
             fontWeight: 300,
             color: "#555",
-            marginBottom: "56px",
+            marginBottom: "20px",
             maxWidth: "520px",
             lineHeight: 1.5,
           }}
         >
           Ein klarer Ablauf — verständlich, gründlich und ohne unnötige Umwege.
+        </p>
+        <p
+          style={{
+            fontSize: "16px",
+            fontWeight: 400,
+            color: "#0d0d0d",
+            marginBottom: "56px",
+            maxWidth: "560px",
+            lineHeight: 1.55,
+            paddingLeft: "16px",
+            borderLeft: `3px solid ${BRAND_RED}`,
+          }}
+        >
+          <span style={{ fontWeight: 700 }}>Bestehende Website?</span> Ich zeige Ihnen einen
+          konkreten Entwurf — bevor Sie sich entscheiden.
         </p>
 
         <div

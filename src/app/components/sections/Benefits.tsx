@@ -30,7 +30,7 @@ export function Benefits() {
         fontFamily: FONT_FAMILY,
         background: "#0d0d0d",
         borderTop: "1px solid rgba(255,255,255,0.08)",
-        padding: "48px 24px",
+        padding: "64px 24px",
       }}
     >
       <div className="max-w-[1200px] mx-auto">
@@ -52,17 +52,24 @@ export function Benefits() {
             >
               <p
                 style={{
-                  fontSize: "14px",
+                  fontSize: "17px",
                   fontWeight: 700,
                   color: "#fff",
                   letterSpacing: "-0.01em",
-                  lineHeight: 1.2,
-                  marginBottom: "6px",
+                  lineHeight: 1.25,
+                  marginBottom: "10px",
                 }}
               >
                 {item.title}
               </p>
-              <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.45)", fontWeight: 400, lineHeight: 1.5 }}>
+              <p
+                style={{
+                  fontSize: "15px",
+                  color: "rgba(255,255,255,0.6)",
+                  fontWeight: 400,
+                  lineHeight: 1.55,
+                }}
+              >
                 {item.detail}
               </p>
             </div>
